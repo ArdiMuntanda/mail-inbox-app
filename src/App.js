@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import {useState} from 'react';
+import MessagesBlock from './components/MessagesBlock.js';
+import OpenMessage from './components/OpenMessage.js';
+import Welcome from './components/Welcome.js';
+function App() {    
+  const [seeMessages, setSeeMessages]= useState(false);
+  const [openMessage, setOpenMessage] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      { !seeMessages ? <Welcome name='Ardi' view={setSeeMessages} /> : null}
+      { seeMessages && !openMessage ? <MessagesBlock openState={setOpenMessage} backButton={setSeeMessages} /> : null }
+      { seeMessages && openMessage ? <OpenMessage sujet='Topic of the Conversation' message='Hello, hope you are doing well.' backButton={setOpenMessage} /> : null }
+      
+      
     </div>
   );
 }
