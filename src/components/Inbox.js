@@ -12,18 +12,13 @@ const dummyMessages = [
         "isRead": false
     }
  ];
-function Inbox(props) {
+function Inbox() {
     return (
         <div>
             <h2>Messages</h2>
             <div className='message_container'>
-                {
-                    dummyMessages.map((message) => {
-                        return (
-                            <Message sujet={message.subject} msg={message.content} readStatus={message.isRead} />
-                        );
-                    })}
-                
+                { dummyMessages.map((message) => { return (<Message propKey={dummyMessages.indexOf(message)} sujet={message.subject} msg={message.content} readStatus={message.isRead} />); 
+                    }) } 
             </div>
             <Link className='btn' to='/'>Previous</Link>
         </div>
