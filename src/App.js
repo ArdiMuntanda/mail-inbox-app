@@ -1,17 +1,21 @@
-import {useState} from 'react';
-import MessagesBlock from './components/MessagesBlock.js';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Inbox from './components/Inbox.js';
 import OpenMessage from './components/OpenMessage.js';
+import TopBar from './components/TopBar.js';
 import Welcome from './components/Welcome.js';
 function App() {    
-  const [seeMessages, setSeeMessages]= useState(false);
-  const [openMessage, setOpenMessage] = useState(false);
   return (
     <div className='container'>
-      { !seeMessages ? <Welcome name='Ardi' view={setSeeMessages} /> : null}
-      { seeMessages && !openMessage ? <MessagesBlock openState={setOpenMessage} backButton={setSeeMessages} /> : null }
-      { seeMessages && openMessage ? <OpenMessage sujet='Topic of the Conversation' message='Hello, hope you are doing well.' backButton={setOpenMessage} /> : null }
-      
-      
+      <BrowserRouter >
+        <TopBar />
+        <Routes >
+          <Route path='/' exact={true} element={<Welcome name='Ardi'  />} />
+          <Route path='inbox' element={<Inbox   />} />
+          <Route path='message' element={<OpenMessage sujet='Topic of the Conversation' message='Hello, hope you are doing well.'/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

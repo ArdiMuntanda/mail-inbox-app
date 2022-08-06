@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 function OpenMessage(props) {
     return (
         <div className="open_msg">
@@ -5,7 +6,7 @@ function OpenMessage(props) {
             <p>
                 {props.message}
             </p>
-            <button className='btn' onClick={function () {props.backButton(false)}}>Previous</button>
+            <Link className='btn' to='/inbox'>Previous</Link>
         </div>
     );
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ReadStatusMark from "./ReadStatusMark";
 function Message(props) {
     function readMessageHandler() {
@@ -9,8 +10,10 @@ function Message(props) {
     return (
         <div className="one_message" onClick={readMessageHandler} >
             <div >
-                <h3>{props.sujet}</h3>
-                <p>{truncate(props.msg, 20)}</p>
+                <Link to='/message' >
+                    <h3>{props.sujet}</h3>
+                    <p>{truncate(props.msg, 20)}</p>
+                </Link>
             </div>
             <ReadStatusMark actualReadStatus={props.readStatus} />
             

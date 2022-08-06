@@ -20,8 +20,10 @@ body {
   overflow-y: auto;
 }
 .btn {
+  display: inline-block; 
   background-color: #880000;
   color: white;
+  text-decoration: none;
   box-shadow: 0px 3px 3px black;
   border: none;
   padding: 5px 15px;
@@ -57,4 +59,33 @@ body {
 }
 .marker img {
   height: 30px;
+}
+.top_bar {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+.user_block a {
+  display: flex; 
+  align-items: center;
+  width: 45%; 
+}
+.message_container {
+  margin-bottom: 20px;
+}
+.top_bar a, .message_container a {
+  text-decoration: none;
+  color: black; 
+  transition: .3s; 
+}
+.top_bar a:hover {
+  cursor: pointer;
+  color: #880000;
+}
+.avatar {
+  height: 60px; 
+  margin: 0px 15px;
 }

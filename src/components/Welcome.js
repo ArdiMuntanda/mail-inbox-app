@@ -1,13 +1,11 @@
 import Counter from './Counter';
+import { Link } from 'react-router-dom';
 function Welcome(props) {
-  function inBoxHandler() {
-    props.view(true);
-  }
     return (
         <div>
             <h2>Hello {props.name}</h2>
             <Counter unread='3' read='10' />
-            <button className='btn' onClick={inBoxHandler}>View Messages</button>
+            <Link className='btn' to='/inbox'>View Messages</Link>
         </div>
     );
 }
