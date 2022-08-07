@@ -10,7 +10,7 @@ function TopBar(props) {
                 </Link>
             </div>
             <Link to='/inbox'>
-                <Counter unread='3' read='10' />
+                <Counter msgData={props.data} />
             </Link>
         </header>
     );

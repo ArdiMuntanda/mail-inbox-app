@@ -5,9 +5,9 @@ function Message(props) {
         return (str.length > n) ? str.substr(0, n - 1) + '...' : str;
     };
     return (
-        <div className="one_message" key={props.propKey} >
+        <div className="one_message" >
             <div >
-                <Link to='/message' >
+                <Link to={'/message/'+ props.propKey } subject={props.sujet} message={props.msg} >
                     <h3>{props.sujet}</h3>
                     <p>{truncate(props.msg, 20)}</p>
                 </Link>
