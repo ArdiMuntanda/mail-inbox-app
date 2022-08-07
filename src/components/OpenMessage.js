@@ -5,6 +5,7 @@ import {  ref, update } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-
 function OpenMessage(props) {
     const id = parseInt(useParams().id);
     if (!props.data[id].isRead) {
+        //Update the isRead property once the massage has been open
         update(ref(db, "/Jim/" + id), {
             isRead: true
         })

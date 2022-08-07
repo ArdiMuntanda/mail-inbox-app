@@ -1,3 +1,4 @@
+// this component return the correct flag for the isRead property
 function ReadStatusMark(props) {
     function setReadMark(status) {
         if (status) {

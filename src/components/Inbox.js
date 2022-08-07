@@ -1,3 +1,4 @@
+// Displays the list of all the messages fetched from the database
 import Message from './Message';
 import { Link } from 'react-router-dom';
 function Inbox(props) {

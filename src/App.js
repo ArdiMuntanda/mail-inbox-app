@@ -7,12 +7,14 @@ import TopBar from './components/TopBar.js';
 import Welcome from './components/Welcome.js';
 import { useState } from 'react';
 import { useEffect } from 'react';
-function App(props) { 
-  
+
+function App() { 
+ //fetch the messages from the database  
   const [isLoading, setLoadingState] = useState(true); 
-    const [loadedMessages, setLoadedMessages] = useState([]);
+  const [loadedMessages, setLoadedMessages] = useState([]);
 
     useEffect(() => {
+      // useEffect to limit the execution of the fetch instruction
         setLoadingState(true);
         fetch(
             "https://mail-inbox-app-default-rtdb.firebaseio.com/Jim.json"
@@ -29,10 +31,13 @@ function App(props) {
             }
             setLoadingState(false);
             setLoadedMessages(data);
+        }).catch((error)=>{
+          alert("An error occured. " + error);
         });
     }, []);
     
     if (isLoading) {
+      // display a loader while the data is being fetch from the database
         return (
           <div className='container' >
             <BrowserRouter >
@@ -57,7 +62,6 @@ function App(props) {
         </div>
       );
     }
-  
 }
 
 export default App;
