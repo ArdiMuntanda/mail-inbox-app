@@ -1,13 +1,13 @@
 import { Link, useParams } from 'react-router-dom';
 import {db} from '../firebase-config';
-import { getDatabase, ref, set, child, update } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js';
+import {  ref, update } from 'https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js';
+
 function OpenMessage(props) {
     const id = parseInt(useParams().id);
     if (!props.data[id].isRead) {
         update(ref(db, "/Jim/" + id), {
             isRead: true
         })
-    
     }
     return (
         <div className="open_msg">
