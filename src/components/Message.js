@@ -8,7 +8,7 @@ function Message(props) {
     };
     return (
         <div className="one_message" >
-            <Link to={'/message/'+ props.propKey } subject={props.sujet} message={props.msg} >
+            <Link to={'/message/'+ props.propKey } >
                 <div >
                         <h3>{props.sujet}</h3>
                         <p>{truncate(props.msg, 20)}</p>

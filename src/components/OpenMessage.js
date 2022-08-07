@@ -6,6 +6,8 @@ function OpenMessage(props) {
     const id = parseInt(useParams().id);
     if (!props.data[id].isRead) {
         //Update the isRead property once the massage has been open
+        props.updateCount([props.currentCount[0], props.currentCount[1]-1]);
+        props.data[id].isRead = true;
         update(ref(db, "/Jim/" + id), {
             isRead: true
         })
